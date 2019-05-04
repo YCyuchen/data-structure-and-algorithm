@@ -25,4 +25,5 @@ for line in calls:
     if float(line[3]) > longest_time:
         longest_outline = line
 
-print("{0} and {1} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))
+print("Making call:{0} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))
+print("answering call:{1} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))
