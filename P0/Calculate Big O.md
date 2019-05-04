@@ -1,6 +1,6 @@
 # Calculate Big O
 Question1: in numpy I can get all the columns in one row of a 2d array by calling matrix[1,:]. Is there similar function for a python 2d list? e.g. `[[1,2,3],[4,5,6]]`  
-Question2: the formula(equation) doesn't shown in right way. the formula in $ $ is converted to equation beautifully, do you have any idea why this happened ?  
+Question2: the formula(equation) doesn't shown in right way on github. the formula in $ $ is correctly converted to equation in my markdown app, do you have any idea why this happened ?  
 #### Task 0
 **Big O** for the first record of texts:
 Ans:$O(n+3)$,   as n=1->O(1)
