@@ -43,3 +43,30 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+# Part A:
+callBangalore = []
+for line in calls:
+    phoneNumber = line[0]
+    prefix = phoneNumber[:5]
+    if prefix == "(080)" and (phoneNumber not in callBangalore):
+        callBangalore.append(phoneNumber)
+
+set(callBangalore)
+print("The numbers called by people in Bangalore have codes:")
+for line in callBangalore:
+    print(line)
+
+# Part B:
+numerator = 0
+denominator = 0
+for line in calls:
+    phoneNumber1, phoneNumber2 = line[0], line[1]
+    prefix1, prefix2 = phoneNumber1[:5], phoneNumber2[:5]
+    if prefix1 == "(080)":
+        denominator += 1
+        if prefix2 == "(080)":
+            numerator += 1
+
+percentage = numerator / denominator
+print("%.2f percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore." % percentage)
