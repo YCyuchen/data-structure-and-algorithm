@@ -3,6 +3,7 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
 import csv
+import re
 
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -45,25 +46,25 @@ The percentage should have 2 decimal digits
 """
 
 # Part A:
-fixed_lineNumber = []
-mobileNumber = []
+code_lineNumber = []
 
 for line in calls:
     phoneNumber = line[0]
     prefix = phoneNumber[:5]
     if prefix == "(080)":
         if "(0" in line[1]:
-            fixed_lineNumber.append(line[1])
+            m = re.match(".*\((.*)\).*", line[1])
+            code_lineNumber.append(m[1])
+        elif line[1][:3] == "140":
+            code_lineNumber.append("140")
         else:
-            mobileNumber.append(line[1])
+            code_lineNumber.append(line[1][:4])
 
-fixed_lineNumber = set(fixed_lineNumber)
-mobileNumber = set(mobileNumber)
+code_lineNumber = sorted(set(code_lineNumber))
 print("The numbers called by people in Bangalore have codes:")
-for line in fixed_lineNumber:
+for line in code_lineNumber:
     print(line)
-for line in mobileNumber:
-    print(line)
+
 
 # Part B:
 numerator = 0
