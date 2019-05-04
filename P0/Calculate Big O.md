@@ -16,11 +16,11 @@ Ans: firstly loop each line in texts and calls, Secondly judge if it's the bigge
 ### Task3
 Part1: **Big O** for finding all of the area codes and mobile prefixes called by people in Bangalore
 Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$
-=======
-Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$   
->>>>>>> dc6ceabe41922a0600ffb27d85c36d0e2247faca
+Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$
+
 Part2:  **Big O** calculating the percent of calls from Bangalore are calls to Bangalore.
 Ans:$O(n+2) = O(n)$
+
 ### Task4
  **Big O**  for Creating a set of possible telemarketers:
 these are numbers that make outgoing calls but never send texts, receive texts or receive incoming calls.
