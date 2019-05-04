@@ -23,7 +23,6 @@ September 2016.".
 longest_time = 0.0
 for line in calls:
     if float(line[3]) > longest_time:
-        telephone_number = line[0]
-        longest_time = float(line[3])
+        longest_outline = line
 
-print("{} spent the longest time {} seconds on the phone during September 2016.".format(telephone_number, longest_time))
+print("{0} and {1} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))

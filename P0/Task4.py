@@ -38,8 +38,8 @@ for phoneNumber in out_calls:
     if (phoneNumber not in in_calls) and (phoneNumber not in send_texts) and (phoneNumber not in receive_texts):
         telemarketers.append(phoneNumber)
 
-set(telemarketers)
+telemarketers = set(telemarketers)
 print("These numbers could be telemarketers: ")
-for phoneNumber in telemarketers:
+for phoneNumber in sorted(telemarketers):
     print(phoneNumber)
 

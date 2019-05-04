@@ -45,16 +45,24 @@ The percentage should have 2 decimal digits
 """
 
 # Part A:
-callBangalore = []
+fixed_lineNumber = []
+mobileNumber = []
+
 for line in calls:
     phoneNumber = line[0]
     prefix = phoneNumber[:5]
-    if prefix == "(080)" and (phoneNumber not in callBangalore):
-        callBangalore.append(phoneNumber)
+    if prefix == "(080)":
+        if "(0" in line[1]:
+            fixed_lineNumber.append(line[1])
+        else:
+            mobileNumber.append(line[1])
 
-set(callBangalore)
+fixed_lineNumber = set(fixed_lineNumber)
+mobileNumber = set(mobileNumber)
 print("The numbers called by people in Bangalore have codes:")
-for line in callBangalore:
+for line in fixed_lineNumber:
+    print(line)
+for line in mobileNumber:
     print(line)
 
 # Part B:
@@ -68,5 +76,5 @@ for line in calls:
         if prefix2 == "(080)":
             numerator += 1
 
-percentage = numerator / denominator
+percentage = (numerator / denominator) * 100
 print("%.2f percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore." % percentage)
