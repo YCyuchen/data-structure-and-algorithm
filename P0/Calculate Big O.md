@@ -1,5 +1,6 @@
 # Calculate Big O
-Question：in numpy I can get all the columns in one row of a 2d array by calling matrix[1,:]. Is there similar function for a python 2d list? e.g. `[[1,2,3],[4,5,6]]`
+Question1: in numpy I can get all the columns in one row of a 2d array by calling matrix[1,:]. Is there similar function for a python 2d list? e.g. `[[1,2,3],[4,5,6]]`
+Question2: the formula(equation) doesn't shown in right way on github. the formula in $ $ is correctly converted to equation in my markdown app, do you have any idea why this happened ?
 #### Task 0
 **Big O** for the first record of texts:
 Ans:$O(n+3)$,   as n=1->O(1)
@@ -15,7 +16,7 @@ Ans: firstly loop each line in texts and calls, Secondly judge if it's the bigge
 
 ### Task3
 Part1: **Big O** for finding all of the area codes and mobile prefixes called by people in Bangalore
-Ans:$O(n+4)$
+Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$
 Part2:  **Big O** calculating the percent of calls from Bangalore are calls to Bangalore.
 Ans:$O(n+2) = O(n)$
 ### Task4
