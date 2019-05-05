@@ -11,12 +11,14 @@ Ans: firstly loop each line in texts and calls, secondly set unique_numbers list
 
 ### Task2
 **Big O** for print the  number spent the longest time on the phone
-Ans: firstly loop each line in texts and calls, Secondly judge if it's the biggest and define the new value -> $O(n+3)=O(n)$
+Ans: firstly loop each line in texts and calls, Secondly judge if it's in the dic (timeSummary_dict) which stores phoning time for each telephone number $O(n^2)$ .Thirdly sort the dic with value:  $O(nlogn)$
+If n>100: $O(n^2)$
+If n<100: $O(nlogn)$
 
 ### Task3
 Part1: **Big O** for finding all of the area codes and mobile prefixes called by people in Bangalore
-Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$
-Ans:$O(n+4)+O(nlog^n)= O(nlog^n)$
+Ans:$O(n+4)+O(nlogn)= O(nlogn)$
+Ans:$O(n+4)+O(nlogn)= O(nlogn)$
 
 Part2:  **Big O** calculating the percent of calls from Bangalore are calls to Bangalore.
 Ans:$O(n+2) = O(n)$
@@ -52,6 +54,6 @@ print("These numbers could be telemarketers: ")
 for phoneNumber in sorted(telemarketers):
     print(phoneNumber)
 ```
-$O(1)+O(nlog^n)$ = $O(nlog^n)$
+$O(1)+O(nlogn)$ = $O(nlogn)$
 
-Ans:$ O(n)+O(n^3)+O(nlog^n)=O(n^3)$
+Ans:$ O(n)+O(n^3)+O(nlogn)=O(n^3)$

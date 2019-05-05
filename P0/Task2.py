@@ -3,6 +3,7 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files
 """
 import csv
+from collections import OrderedDict
 
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -20,10 +21,23 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
-longest_time = 0.0
+timeSummary_dict = OrderedDict()
 for line in calls:
-    if float(line[3]) > longest_time:
-        longest_outline = line
+    caller, receiver = line[0], line[1]
+    time = int(line[3])
 
-print("Making call:{0} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))
-print("answering call:{1} spent the longest time {3} seconds on the phone during September 2016.".format(*longest_outline))
+    if caller in timeSummary_dict.keys():
+        timeSummary_dict[caller] += time
+    else:
+        timeSummary_dict[caller] = time
+
+    if receiver in timeSummary_dict.keys():
+        timeSummary_dict[receiver] += time
+    else:
+        timeSummary_dict[receiver] = time
+
+timeSummary_dict = sorted(timeSummary_dict.items(), key=lambda x: x[1])
+longestTime_number = timeSummary_dict[-1][0]
+longestTime = timeSummary_dict[-1][1]
+
+print("{0} spents the longest time {1} seconds, on the phone during Sep 2016".format(longestTime_number, longestTime))
