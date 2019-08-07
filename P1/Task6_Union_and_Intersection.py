@@ -72,17 +72,22 @@ def union(llist_1, llist_2):
 def intersection(llist_1, llist_2):
     # Your Solution Here
     l1_value_list = list()
+    intersection_list = list()
     intersection_linkedlist = LinkedList()
     node1, node2 = llist_1.head, llist_2.head
     # append the node value to a list
-    while node1.next:
+    while node1:
         l1_value_list.append(node1.value)
         node1 = node1.next
+    l1_value_list = list(set(l1_value_list))
     # judge if node2 in node1
-    while node2.next:
+    while node2:
         if node2.value in l1_value_list:
-            intersection_linkedlist.append(node2.value)
+            intersection_list.append(node2.value)
         node2 = node2.next
+    intersection_list = set(intersection_list)
+    for i in intersection_list:
+        intersection_linkedlist.append(i)
     return intersection_linkedlist
 
 
@@ -99,7 +104,7 @@ if __name__ == '__main__':
 
     for i in element_2:
         linked_list_2.append(i)
-
+    print("test 1")
     print(union(linked_list_1, linked_list_2))
     print(intersection(linked_list_1, linked_list_2))
 
@@ -115,6 +120,23 @@ if __name__ == '__main__':
 
     for i in element_2:
         linked_list_4.append(i)
-
+    print("test 2")
     print(union(linked_list_3, linked_list_4))
     print(intersection(linked_list_3, linked_list_4))
+
+    # edge case
+    # Task 3: should both be empty
+    linked_list_5 = LinkedList()
+    linked_list_6 = LinkedList()
+
+    element_1 = [3]
+    element_2 = [1]
+
+    for i in element_1:
+        linked_list_5.append(i)
+
+    for i in element_2:
+        linked_list_6.append(i)
+    print("test 3")
+    print(union(linked_list_5, linked_list_6))
+    print(intersection(linked_list_5, linked_list_6))

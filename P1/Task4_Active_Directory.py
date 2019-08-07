@@ -53,6 +53,7 @@ def is_user_in_group(user, group):
 
 if __name__ == '__main__':
     parent = Group("parent")
+    parent.add_user("parent user")
     child = Group("child")
     sub_child = Group("subchild")
 
@@ -61,7 +62,13 @@ if __name__ == '__main__':
 
     child.add_group(sub_child)
     parent.add_group(child)
-
-    print("Pass" if is_user_in_group("sub_child_user", parent) is True else "Failed")
+    # edge case
+    # Test1 user not exist in any group
     print("Pass" if is_user_in_group("xxx", parent) is False else "Failed")
-    print("Pass" if is_user_in_group("sub_child_user", sub_child) is True else "Failed")
+
+    # Test2 user  exist in sub_child group
+    print("Pass" if is_user_in_group("sub_child_user", parent) is True else "Failed")
+
+    # edge case
+    # Test3 upper group user not exist sub group
+    print("Pass" if is_user_in_group("parent user", sub_child) is False else "Failed")

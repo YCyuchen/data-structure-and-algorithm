@@ -24,6 +24,8 @@ def find_files(suffix, path):
        a list of paths
     """
     out_list = list()
+    if not os.path.exists(path):
+        return []
 
     def traverse(path, out_list):
         for file in os.listdir(path):
@@ -39,5 +41,17 @@ def find_files(suffix, path):
 
 
 if __name__ == '__main__':
+    # edge case: the input path does not exist
+    # Test1 should return []
+    a = find_files(".c", "")
+    print(a)
+
+    # Test2 should return a list of path
+    # ['/Users/yuchen/Downloads/testdir/subdir3/subsubdir1/b.c', '/Users/yuchen/Downloads/testdir/t1.c', ...]
     a = find_files(".c", "/Users/yuchen/Downloads/testdir")
+    print(a)
+
+    # edge case: the suffix is None
+    # Test3 should all the file in the path
+    a = find_files("", "/Users/yuchen/Downloads/testdir")
     print(a)
