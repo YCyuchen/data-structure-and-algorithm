@@ -104,7 +104,6 @@ if __name__ == '__main__':
     print(intersection(linked_list_1, linked_list_2))
 
     # Test case 2
-
     linked_list_3 = LinkedList()
     linked_list_4 = LinkedList()
 

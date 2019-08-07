@@ -5,8 +5,6 @@
 # @File : LRU_cache.py 
 # @Software: PyCharm
 
-from collections import OrderedDict
-
 
 class LRU_Cache():
     def __init__(self, capacity):
@@ -39,21 +37,22 @@ class LRU_Cache():
 
 if __name__ == '__main__':
     our_cache = LRU_Cache(5)
-    print("Pass" if our_cache.get(1) == -1 else "Failed")  # returns -1
+    # Test case1: edge case, should returns -1
+    print("Pass" if our_cache.get(1) == -1 else "Failed")
 
     our_cache.set(1, 1)
     our_cache.set(2, 2)
     our_cache.set(3, 3)
     our_cache.set(4, 4)
+    # Test case2: should returns 1 and 2
+    print("Pass" if our_cache.get(1) == 1 else "Failed")
+    print("Pass" if our_cache.get(2) == 2 else "Failed")
 
-    print("Pass" if our_cache.get(1) == 1 else "Failed")  # returns 1
-    print("Pass" if our_cache.get(2) == 2 else "Failed")  # returns 2
-
-    # returns -1 because 9 is not present in the cache
+    # Test case3: should returns -1 because 9 is not present in the cache
     print("Pass" if our_cache.get(9) == -1 else "Failed")
 
     our_cache.set(5, 5)
     our_cache.set(6, 6)
 
-    # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+    # Test case4: should returns -1 because the cache reached it's capacity and 3 was the least recently used entry
     print("Pass" if our_cache.get(3) == -1 else "Failed")
