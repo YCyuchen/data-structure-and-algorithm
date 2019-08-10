@@ -49,16 +49,15 @@ class LinkedList:
 
 def union(llist_1, llist_2):
     # assert two linkedlist are not empty
-    assert llist_1.head and llist_2.head
     union_value_list = list()
     union_linkedlist = LinkedList()
     node1, node2 = llist_1.head, llist_2.head
     # append the node value to a list
-    while node1.next:
+    while node1:
         union_value_list.append(node1.value)
         node1 = node1.next
 
-    while node2.next:
+    while node2:
         union_value_list.append(node2.value)
         node2 = node2.next
 
@@ -96,36 +95,37 @@ if __name__ == '__main__':
     linked_list_1 = LinkedList()
     linked_list_2 = LinkedList()
 
-    element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 21]
-    element_2 = [6, 32, 4, 9, 6, 1, 11, 21, 1]
+    element_1 = [1, 2, 3, 4, 5]
+    element_2 = [5, 6, 7, 8, 9]
 
     for i in element_1:
         linked_list_1.append(i)
 
     for i in element_2:
         linked_list_2.append(i)
-    print("test 1")
-    print(union(linked_list_1, linked_list_2))
-    print(intersection(linked_list_1, linked_list_2))
+    print("\ntest 1")
+    print("union", union(linked_list_1, linked_list_2))
+    print("intersection", intersection(linked_list_1, linked_list_2))
 
-    # Test case 2
+    # edge case
+    # Test case 2 both should be empty
     linked_list_3 = LinkedList()
     linked_list_4 = LinkedList()
 
-    element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 23]
-    element_2 = [1, 7, 8, 9, 11, 21, 1]
+    element_1 = []
+    element_2 = []
 
     for i in element_1:
         linked_list_3.append(i)
 
     for i in element_2:
         linked_list_4.append(i)
-    print("test 2")
-    print(union(linked_list_3, linked_list_4))
-    print(intersection(linked_list_3, linked_list_4))
+    print("\ntest 2")
+    print("union", union(linked_list_3, linked_list_4))
+    print("intersection", intersection(linked_list_3, linked_list_4))
 
     # edge case
-    # Task 3: should both be empty
+    # Task 3: union should be [1,3]  intersection should be empty
     linked_list_5 = LinkedList()
     linked_list_6 = LinkedList()
 
@@ -137,6 +137,6 @@ if __name__ == '__main__':
 
     for i in element_2:
         linked_list_6.append(i)
-    print("test 3")
-    print(union(linked_list_5, linked_list_6))
-    print(intersection(linked_list_5, linked_list_6))
+    print("\ntest 3")
+    print("union", union(linked_list_5, linked_list_6))
+    print("intersection", intersection(linked_list_5, linked_list_6))

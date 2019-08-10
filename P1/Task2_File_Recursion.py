@@ -25,18 +25,22 @@ def find_files(suffix, path):
     """
     out_list = list()
     if not os.path.exists(path):
+        print("W: Input path not exist")
         return []
 
     def traverse(path, out_list):
         for file in os.listdir(path):
             sub_path = os.path.join(path, file)
+            # file is a folder
             if os.path.isdir(sub_path):
                 traverse(sub_path, out_list)
+            # file is a single file
             else:
                 if sub_path.endswith(suffix):
                     out_list.append(sub_path)
 
     traverse(path, out_list)
+
     return out_list
 
 
@@ -51,7 +55,7 @@ if __name__ == '__main__':
     a = find_files(".c", "/Users/yuchen/Downloads/testdir")
     print(a)
 
-    # edge case: the suffix is None
+    # edge case: the suffix does not exists
     # Test3 should all the file in the path
-    a = find_files("", "/Users/yuchen/Downloads/testdir")
+    a = find_files("hahaha", "/Users/yuchen/Downloads/testdir")
     print(a)
